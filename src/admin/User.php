@@ -123,6 +123,19 @@ class User
         $this->result($roleList, 1, "获取管理员用户组成功");
     }
 
+    public function editpwd($oldPassword, $password){
+        $logininfo = Adminjwt::instance()->decodeHmac(input('param.access_token', ''));
+        $userinfo = Auth::instance()->getUserInfo($logininfo['id']);
+        if(sha1($oldPassword.$userinfo['salt']) != $userinfo['password']){
+            $this->error("很抱歉, 您输入的原密码不正确,无法修改");
+        }else{
+            IcesAdminMember::icesSave([
+                'password' => sha1($password . $userinfo['salt'])
+            ], ['id' => $logininfo['id']]);
+            $this->success("修改密码成功");
+        }
+    }
+
     /**
      * @title 用户资料更新
      * @description 用户资料更新接口, 需要传递username,phone,realname,role这几个参数
