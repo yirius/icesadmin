@@ -1,0 +1,158 @@
+{if !empty($_pagestyle) && $_formispop == true }
+<style>{$_pagestyle}</style>
+{/if}
+<form class="layui-form" lay-filter="{$_formname}" id="{$_formname}" action="" style="padding: 20px 30px 0 0;">
+    <script type="text/html" template>
+        <input type="hidden" name="id" value="{{ d.params.id || 0 }}" autocomplete="off" class="layui-input">
+    </script>
+    {foreach name="_formcontrols" item="_form_val" key="_form_i"}
+        <div class="layui-form-item">
+            {foreach name="_form_val" key="_formcontrols_val_i" item="_formcontrols_val"}
+                {php}if(count($_form_val) != 1){ echo '<div class="layui-inline">';$_formcontrols_val['info']['inline'] = "layui-input-inline";}{/php}
+                {switch $_formcontrols_val['type'] }
+                    {case text|password }
+                        {include file="base/form/text" /}
+                    {/case}
+                    {case select }
+                        {include file="base/form/select" /}
+                    {/case}
+                    {case mulselect }
+                        {include file="base/form/mulselect" /}
+                    {/case}
+                    {case checkbox|radio }
+                        {include file="base/form/checkbox" /}
+                    {/case}
+                    {case switch }
+                        {include file="base/form/switch" /}
+                    {/case}
+                    {case textarea }
+                        {include file="base/form/textarea" /}
+                    {/case}
+                    {case date }
+                        {include file="base/form/date" /}
+                    {/case}
+                    {case upload }
+                        {include file="base/form/upload" /}
+                    {/case}
+                    {case webuploader }
+                        {include file="base/form/webuploader" /}
+                    {/case}
+                    {case ueditor }
+                        {include file="base/form/ueditor" /}
+                    {/case}
+                    {default /}
+                        {:htmlspecialchars_decode($_formcontrols_val['type'])}
+                {/switch}
+                {php}if(count($_form_val) != 1) echo '</div>';{/php}
+            {/foreach}
+        </div>
+    {/foreach}
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <div class="layui-footer">
+                <button class="layui-btn" lay-submit="" lay-filter="{$_formname}-submit">立即提交</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script>
+    layui.use({:json_encode($_formconsolejs)}, function () {
+        var $ = layui.$, form = layui.form, admin = layui.admin;
+
+        if(typeof layui.formSelects != "undefined"){
+            var formselect = layui.formSelects;
+        }
+        if(typeof layui.upload != "undefined"){
+            var upload = layui.upload;
+            $("#{$_formname} *[lay-upload]").each(function(n, v){
+                var uploadList = $(v).parent().find(".layui-upload-list")
+                    , styles = "style='width: 100px;height: 100px;padding: 5px' class='layui-upload-img'";
+                var options = $.extend({
+                    elem: v,
+                    done: function(res){
+                        for(var i in res){
+                            uploadList.html("<img data-fancybox='' href='"+res[i]+"' src='"+res[i]+"' " + styles + " />");
+                            break;
+                        }
+                        var textInput = $(v).parent().find("input[type=hidden]");
+                        if(textInput.length == 0){
+                            $(v).parent().append($("<input type='hidden' name='"+$(v).data("field")+"'/>"));
+                            textInput = $(v).parent().find("input[type=hidden]");
+                        }
+                        textInput.val(res[i]);
+                    }
+                }, $(v).data());
+                upload.render(options);
+            });
+        }
+        if(typeof layui.laydate != "undefined"){
+            var laydate = layui.laydate;
+            $("#{$_formname} input[lay-date]").each(function(n, v){
+                var options = $.extend({
+                    elem: v
+                }, $(v).data());
+                laydate.render(options);
+            });
+        }
+        if(typeof layui.webupload != "undefined"){
+            var webupload = layui.webupload, webuploader = layui.webuploader;
+            $("#{$_formname} div[lay-webuploader]").each(function(n, v){
+                var data = $(v).data();
+                var _this = new webupload(v, {
+                    pick: {
+                        id: '#icesadmin-' + data.name + '-filePicker',
+                        label: data.label
+                    },
+                    dnd: '#icesadmin-' + data.name + ' .queueList',
+                    paste: '#icesadmin-' + data.name
+                });
+                if(data.thumbs){
+                    var thumbs = data.thumbs.split(",");
+                    for(var i in thumbs){
+                        _this.setInitFile(thumbs[i]);
+                    }
+                }
+            });
+        }
+
+        $("#{$_formname} script[lay-ueditor]").each(function(n, v){
+            var info = UE.getEditor(v.id);
+            if(info.container){
+                info.destroy();
+                UE.getEditor(v.id);
+            }
+        });
+
+        form.render(null, "{$_formname}");
+
+        {if !empty($_formjavascript)}
+        {:htmlspecialchars_decode($_formjavascript)}
+        {/if}
+
+        {if $_formispop == false}
+        var submitCallback = null;
+        {if !empty($_formsubmitcallback)}
+        submitCallback = eval("(function(){return function(data){ {$_formsubmitcallback} } })()");
+        {/if}
+        form.on("submit({$_formname}-submit)", function (obj) {
+            admin.req({
+                method: 'POST',
+                url: "{$_formsubmiturl}",
+                data: obj.field,
+                done: function (res) {
+                    if (typeof submitCallback == "function") {
+                        submitCallback(res);
+                    } else {
+                        layer.msg(res.msg);
+                    }
+                }
+            });
+            return false;
+        });
+        {/if}
+    });
+</script>
+{if $_formispop == true && !empty($_pagescript)}
+{:htmlspecialchars_decode($_pagescript)}
+{/if}

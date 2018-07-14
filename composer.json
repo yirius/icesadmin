@@ -1,0 +1,38 @@
+{
+  "name": "yirius/icesadmin",
+  "description": "thinkphp5.1 admin ui use layui",
+  "type": "think-extend",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Yirius",
+      "email": "2951979767@qq.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "icesadmin\\": "src/"
+    },
+    "files": [
+      "src/helper.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "icesadmin\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "think-config": {
+      "icesadmin": "src/config/config.php",
+      "captcha": "src/config/captcha.php"
+    }
+  },
+  "require": {
+    "topthink/think-helper": ">=1.0.4",
+    "topthink/think-installer": ">=1.0.10",
+    "topthink/think-captcha": ">=2.0",
+    "topthink/think-image": ">=1.0"
+  }
+}

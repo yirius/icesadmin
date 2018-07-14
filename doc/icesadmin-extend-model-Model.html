@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>apidoc</title>
+
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                icesadmin\extend\model\Model [extend: think\Model]
+            </a>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="col-xs-3">
+        <ul class="nav nav-pills nav-stacked" role="tablist">
+                            <li role="presentation" class="active">
+                    <a href="#icesui0" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\model\Model::icesList</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui1" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\model\Model::icesDelete</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui2" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\model\Model::icesSave</a>
+                </li>
+                    </ul>
+    </div>
+    <div class="col-xs-9">
+        <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="icesui0">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">基础方法,直接生成一个列表格式</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>model的基础方法之一,可以直接生成一个不含msg的table需要内容,如果传递了with条件,会自动把当前表别名为a</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>array</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>字符串</td>
+                                        <td>$field</td>
+                                        <td>需要查询的字段</td>
+                                        <td>false</td>
+                                        <td>'*'</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>数组</td>
+                                        <td>$where</td>
+                                        <td>查询的条件</td>
+                                        <td>false</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>数组</td>
+                                        <td>$with</td>
+                                        <td>关联的表,如果传递了这个参数,当前表会alias为a</td>
+                                        <td>false</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td></td>
+                                        <td>null</td>
+                                        <td>需要循环运行的方法</td>
+                                        <td>false</td>
+                                        <td>null</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>数组</td>
+                                        <td>$defaultConfig</td>
+                                        <td>其他的一些预定义参数,defaultOrder/orderPrefix/group/cacheName/cacheSeconds</td>
+                                        <td>false</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>整型</td>
+                                        <td>$trashed</td>
+                                        <td>是否显示放进回收站的内容,1是全部显示,2是只显示删除内容</td>
+                                        <td>false</td>
+                                        <td>'0'</td>
+                                        <td>0|1|2</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui1">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">删除的自定义操作</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>在用户验证了密码之后,进行快捷删除的方法</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>array 用户无法删除的或者删除失败的信息</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>数组</td>
+                                        <td>$ids</td>
+                                        <td>需要删除的id数组</td>
+                                        <td>true</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>数组</td>
+                                        <td>$notDelete</td>
+                                        <td>不能删除的id数组</td>
+                                        <td>false</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>字符串</td>
+                                        <td>$pk</td>
+                                        <td>主键对应</td>
+                                        <td>false</td>
+                                        <td>id</td>
+                                        <td>[]</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>布尔型</td>
+                                        <td>$force_delete</td>
+                                        <td>是否是真实删除,默认是彻底删除</td>
+                                        <td>false</td>
+                                        <td>true</td>
+                                        <td>true|false</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">自动保存和修改的接口</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>通过传入或者不传入where条件,来对数据进行快捷的新增和更新</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>bool|number 如果是更新就是返回成功与失败,如果是新增就是返回自增完了的主键</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>数组</td>
+                                        <td>$add</td>
+                                        <td>需要添加或者修改的内容的数组,通常是post内容</td>
+                                        <td>true</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>数组</td>
+                                        <td>$where</td>
+                                        <td>更新的条件</td>
+                                        <td>false</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>Validate</td>
+                                        <td>$valiate</td>
+                                        <td>Validate类的实例化</td>
+                                        <td>false</td>
+                                        <td>null</td>
+                                        <td>''</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                    </div>
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>

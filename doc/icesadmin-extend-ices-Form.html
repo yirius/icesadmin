@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>apidoc</title>
+
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                icesadmin\extend\ices\Form [extend: icesadmin\extend\ices\Backview]
+            </a>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="col-xs-3">
+        <ul class="nav nav-pills nav-stacked" role="tablist">
+                            <li role="presentation" class="active">
+                    <a href="#icesui0" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\ices\Form::addControl</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui1" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\ices\Form::addText</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui2" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\ices\Form::addTextarea</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui3" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\ices\Form::addPassword</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui4" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\ices\Form::addUpload</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui5" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\ices\Form::addSelect</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui6" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\ices\Form::addMulSelect</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui7" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\ices\Form::addCheckbox</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui8" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\ices\Form::addSwitch</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui9" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\ices\Form::addRadio</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui10" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\ices\Form::addDate</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui11" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\ices\Form::setFormValue</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui12" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\ices\Form::getFormcontrols</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui13" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\ices\Form::startInLine</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui14" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\ices\Form::setFormname</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui15" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\ices\Form::addConsoleJs</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui16" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\ices\Form::addFormJavascript</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui17" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\ices\Form::show</a>
+                </li>
+                    </ul>
+    </div>
+    <div class="col-xs-9">
+        <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="icesui0">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">作为基础方法,也是其他方法最后调用的</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>作为基础方法,也是其他方法最后调用的,如果需要自定义的话,只需在type处写HTML</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>$this</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>字符串</td>
+                                        <td>$type</td>
+                                        <td>定义的类型,有其他类型,也可以直接在此处写html</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>字符串</td>
+                                        <td>$label</td>
+                                        <td>前面显示的标题内容</td>
+                                        <td>false</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>数组</td>
+                                        <td>$info</td>
+                                        <td>这个组件的一些参数,不会渲染到html中</td>
+                                        <td>false</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>数组</td>
+                                        <td>$options</td>
+                                        <td>这个组件的HTML中attr</td>
+                                        <td>false</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui1">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">添加一个Text组件</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>添加一个Text组件,input[type=text]</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>Form</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>字符串</td>
+                                        <td>$name</td>
+                                        <td>组件要使用的input的name</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>字符串</td>
+                                        <td>$label</td>
+                                        <td>组件前面展示的标题</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>字符串</td>
+                                        <td>$placeholder</td>
+                                        <td>显示的placeholder</td>
+                                        <td>false</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>数组</td>
+                                        <td>$info</td>
+                                        <td>在组件使用的时候需要的条件</td>
+                                        <td>false</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>数组</td>
+                                        <td>$options</td>
+                                        <td>直接渲染在input上面的各种attr,赋值value需要写在options内</td>
+                                        <td>false</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">加入一个textarea组件</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>加入一个textarea组件,&lt;textarea&gt;&lt;/textarea&gt;</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>Form</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>字符串</td>
+                                        <td>$name</td>
+                                        <td>组件要使用的input的name</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>字符串</td>
+                                        <td>$label</td>
+                                        <td>组件前面展示的标题</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>字符串</td>
+                                        <td>$placeholder</td>
+                                        <td>显示的placeholder</td>
+                                        <td>false</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>数组</td>
+                                        <td>$info</td>
+                                        <td>在组件使用的时候需要的条件,这个value需要写在info中</td>
+                                        <td>false</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>数组</td>
+                                        <td>$options</td>
+                                        <td>直接渲染在input上面的各种attr</td>
+                                        <td>false</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">添加一个密码输入框组件</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>添加一个密码输入框组件</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>Form</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>字符串</td>
+                                        <td>$name</td>
+                                        <td>组件要使用的input的name</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>字符串</td>
+                                        <td>$label</td>
+                                        <td>组件前面展示的标题</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>字符串</td>
+                                        <td>$placeholder</td>
+                                        <td>显示的placeholder</td>
+                                        <td>false</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>数组</td>
+                                        <td>$info</td>
+                                        <td>在组件使用的时候需要的条件</td>
+                                        <td>false</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>数组</td>
+                                        <td>$options</td>
+                                        <td>直接渲染在input上面的各种attr,赋值value需要写在options内</td>
+                                        <td>false</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">添加一个上传图片组件</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>添加一个上传图片组件</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>Form</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>字符串</td>
+                                        <td>$name</td>
+                                        <td>组件要使用的input的name</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>字符串</td>
+                                        <td>$label</td>
+                                        <td>组件前面展示的标题</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>数组</td>
+                                        <td>$info</td>
+                                        <td>数组承载图片内容,多张就[XX,XXX]</td>
+                                        <td>false</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>数组</td>
+                                        <td>$options</td>
+                                        <td>直接渲染在input上面的各种attr,赋值value需要写在options内</td>
+                                        <td>false</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui5">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">添加一个Select组件</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>添加一个Select组件</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>Form</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>字符串</td>
+                                        <td>$name</td>
+                                        <td>组件要使用的select的name</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>字符串</td>
+                                        <td>$label</td>
+                                        <td>组件前面展示的标题</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>数组</td>
+                                        <td>$list</td>
+                                        <td>需要显示的options,格式为[[&quot;text&quot;=&gt;&quot;&quot;,&quot;value&quot;=&gt;&quot;&quot;,&quot;checked&quot;=&gt;false]]</td>
+                                        <td>false</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>字符串</td>
+                                        <td>$placeholder</td>
+                                        <td>显示的placeholder</td>
+                                        <td>false</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>数组</td>
+                                        <td>$info</td>
+                                        <td>数组承载图片内容,多张就[XX,XXX]</td>
+                                        <td>false</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>数组</td>
+                                        <td>$options</td>
+                                        <td>直接渲染在input上面的各种attr,赋值value需要写在options内</td>
+                                        <td>false</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">添加一个多选组件</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>添加一个多选组件</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>Form</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>字符串</td>
+                                        <td>$name</td>
+                                        <td>组件要使用的select的name</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>字符串</td>
+                                        <td>$label</td>
+                                        <td>组件前面展示的标题</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>数组</td>
+                                        <td>$list</td>
+                                        <td>需要显示的options,格式为[[&quot;text&quot;=&gt;&quot;&quot;,&quot;value&quot;=&gt;&quot;&quot;,&quot;checked&quot;=&gt;false]]</td>
+                                        <td>false</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>字符串</td>
+                                        <td>$placeholder</td>
+                                        <td>显示的placeholder</td>
+                                        <td>false</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>数组</td>
+                                        <td>$info</td>
+                                        <td>数组承载图片内容,多张就[XX,XXX]</td>
+                                        <td>false</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>数组</td>
+                                        <td>$options</td>
+                                        <td>直接渲染在input上面的各种attr,赋值value需要写在options内</td>
+                                        <td>false</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui7">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">添加一个checkbox组件</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>添加一个checkbox组件</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>Form</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>字符串</td>
+                                        <td>$name</td>
+                                        <td>组件要使用的select的name</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>字符串</td>
+                                        <td>$label</td>
+                                        <td>组件前面展示的标题</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>数组</td>
+                                        <td>$list</td>
+                                        <td>需要显示的options,格式为[[&quot;text&quot;=&gt;&quot;&quot;,&quot;value&quot;=&gt;&quot;&quot;,&quot;checked&quot;=&gt;false]]</td>
+                                        <td>false</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>数组</td>
+                                        <td>$info</td>
+                                        <td>数组承载图片内容,多张就[XX,XXX]</td>
+                                        <td>false</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>数组</td>
+                                        <td>$options</td>
+                                        <td>直接渲染在input上面的各种attr,赋值value需要写在options内</td>
+                                        <td>false</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui8">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">添加一个左右滑动的组件</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>添加一个左右滑动的组件</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>Form</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>字符串</td>
+                                        <td>$name</td>
+                                        <td>组件要使用的select的name</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>字符串</td>
+                                        <td>$label</td>
+                                        <td>组件前面展示的标题</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>数组</td>
+                                        <td>$info</td>
+                                        <td>数组承载图片内容,多张就[XX,XXX]</td>
+                                        <td>false</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>数组</td>
+                                        <td>$options</td>
+                                        <td>直接渲染在input上面的各种attr,赋值value需要写在options内</td>
+                                        <td>false</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui9">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">添加一个单选radio组件</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>添加一个单选radio组件</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>Form</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>字符串</td>
+                                        <td>$name</td>
+                                        <td>组件要使用的select的name</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>字符串</td>
+                                        <td>$label</td>
+                                        <td>组件前面展示的标题</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>数组</td>
+                                        <td>$list</td>
+                                        <td>需要显示的options,格式为[[&quot;text&quot;=&gt;&quot;&quot;,&quot;value&quot;=&gt;&quot;&quot;,&quot;checked&quot;=&gt;false]]</td>
+                                        <td>false</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>数组</td>
+                                        <td>$info</td>
+                                        <td>数组承载图片内容,多张就[XX,XXX]</td>
+                                        <td>false</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>数组</td>
+                                        <td>$options</td>
+                                        <td>直接渲染在input上面的各种attr,赋值value需要写在options内</td>
+                                        <td>false</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui10">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">添加一个日期选择组件</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>添加一个日期选择组件,具体组件参考[http://www.layui.com/doc/modules/laydate.html]</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>Form</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>字符串</td>
+                                        <td>$name</td>
+                                        <td>组件要使用的select的name</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>字符串</td>
+                                        <td>$label</td>
+                                        <td>组件前面展示的标题</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>字符串</td>
+                                        <td>$placeholder</td>
+                                        <td>显示的placeholder</td>
+                                        <td>false</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>数组</td>
+                                        <td>$info</td>
+                                        <td>数组承载图片内容,多张就[XX,XXX]</td>
+                                        <td>false</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>数组</td>
+                                        <td>$options</td>
+                                        <td>直接渲染在input上面的各种attr,赋值value需要写在options内</td>
+                                        <td>false</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui11">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">设置表单的内容</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>设置表单的值,在Form的Curd操作一开始就需要设置</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>$this</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>数组</td>
+                                        <td>$formValue</td>
+                                        <td>表单的值</td>
+                                        <td>true</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">为Table或者其他操作准备</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>在Table中或者其他方式渲染的时候,可以直接引入form.html,然后利用Form获取到内容去渲染</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>array</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                        </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui13">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">开始设置内容是inline的</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>开始设置内容是inline的,在结束的时候必须设置是false,否则最后几个无法展示</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>$this</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>布尔型</td>
+                                        <td>$start</td>
+                                        <td>开启或者关闭</td>
+                                        <td>false</td>
+                                        <td>true</td>
+                                        <td>true|false</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui14">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">设置表单名称</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>设置表单名称,当表单是弹出,并且和table联动的时候,也就是点击提交之后table可以刷新等操作的时候需要设置</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>$this</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>字符串</td>
+                                        <td>$formname</td>
+                                        <td>form的name,不能使用-或者。等,只能使用英文或_</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui15">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">添加一个js文件</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>当不是直接在PHP内手写JS,JS较多,新开了一个.js文件,需要引用一下</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>$this</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>字符串</td>
+                                        <td>$js</td>
+                                        <td>请把js文件放在/public/app/controller内,然后只添加js名称即可</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui16">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">当仅有几句js需要写</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>当仅有几句js需要写,不会影响整体架构的话可以直接在PHP里写js</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>$this</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>字符串</td>
+                                        <td>$javascript</td>
+                                        <td>用&lt;&lt;&lt;HTML包含,可以直接写JS</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui17">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">最后的输出方法</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>最后的输出方法,在class中必须return $form-&gt;show();</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>\think\Response</td>
+                            </tr>
+                                                        <tr>
+                                <td>异常提醒: </td>
+                                <td>Exception</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>布尔型</td>
+                                        <td>$isPop</td>
+                                        <td>是否是浮窗,默认不是浮窗</td>
+                                        <td>false</td>
+                                        <td>true</td>
+                                        <td>true|false</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>布尔型</td>
+                                        <td>$submitUrl</td>
+                                        <td>如果不是浮窗,需要指定提交的url,否则从table中指定</td>
+                                        <td>false</td>
+                                        <td>false</td>
+                                        <td>url||false</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td></td>
+                                        <td>null</td>
+                                        <td>如果不是浮窗,同时存在jscallback,会自动执行</td>
+                                        <td>false</td>
+                                        <td>null</td>
+                                        <td>''</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                    </div>
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>

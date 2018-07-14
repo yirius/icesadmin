@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>apidoc</title>
+
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                icesadmin\admin\Index [extend: 暂无]
+            </a>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="col-xs-3">
+        <ul class="nav nav-pills nav-stacked" role="tablist">
+                            <li role="presentation" class="active">
+                    <a href="#icesui0" aria-controls="home" role="tab" data-toggle="tab">icesadmin\admin\Index::login</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui1" aria-controls="home" role="tab" data-toggle="tab">icesadmin\admin\Index::logout</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui2" aria-controls="home" role="tab" data-toggle="tab">icesadmin\admin\Index::menu</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui3" aria-controls="home" role="tab" data-toggle="tab">icesadmin\admin\Index::topmenu</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui4" aria-controls="home" role="tab" data-toggle="tab">icesadmin\admin\Index::userinfo</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui5" aria-controls="home" role="tab" data-toggle="tab">icesadmin\admin\Index::message</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui6" aria-controls="home" role="tab" data-toggle="tab">icesadmin\admin\Index::adminroleList</a>
+                </li>
+                    </ul>
+    </div>
+    <div class="col-xs-9">
+        <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="icesui0">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">登录接口</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>admin的默认登录接口</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>\\Response::result</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>字符串</td>
+                                        <td>$username</td>
+                                        <td>用户名</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>字符串</td>
+                                        <td>$password</td>
+                                        <td>密码</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>字符串</td>
+                                        <td>$vercode</td>
+                                        <td>验证码,可以通过config/capatch.php配置</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui1">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">退出登录接口</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>admin的默认退出登录接口,现阶段默认只返回了一个成功,无其他操作,后期需要可以加入用户的记录</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>\\Response::result</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                        </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">获取后台菜单</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>获取后台菜单的接口</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td></td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>字符串</td>
+                                        <td>$access_token</td>
+                                        <td>jwt_token,利用Adminjwt生成</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">顶部菜单</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>顶部菜单</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td></td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td></td>
+                                        <td>$access_token</td>
+                                        <td>暂无介绍</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">获取用户信息</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>登录之后获取用户个人信息的界面,会保存在admin.html中,username必须返回</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td></td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>字符串</td>
+                                        <td>$access_token</td>
+                                        <td>jwt_token,利用Adminjwt生成</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui5">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">判断是否存在新的信息</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>判断是否存在新的信息, 如果存在则newmsg返回大于零的任何数字即可</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td></td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                        </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">获取到角色的列表</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>暂无描述</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>\think\response</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>整型</td>
+                                        <td>$page</td>
+                                        <td>暂无介绍</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>整型</td>
+                                        <td>$limit</td>
+                                        <td>暂无介绍</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                    </div>
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>

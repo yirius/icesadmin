@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>apidoc</title>
+
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                icesadmin\extend\auth\Auth [extend: 暂无]
+            </a>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="col-xs-3">
+        <ul class="nav nav-pills nav-stacked" role="tablist">
+                            <li role="presentation" class="active">
+                    <a href="#icesui0" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\auth\Auth::instance</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui1" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\auth\Auth::check</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui2" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\auth\Auth::getAuthList</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui3" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\auth\Auth::getGroups</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui4" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\auth\Auth::checkUserInfo</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui5" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\auth\Auth::getUserInfo</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui6" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\auth\Auth::getConfig</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui7" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\auth\Auth::getAuthMenu</a>
+                </li>
+                    </ul>
+    </div>
+    <div class="col-xs-9">
+        <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="icesui0">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">自动初始化方法</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>暂无描述</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>null|static</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>数组</td>
+                                        <td>$options</td>
+                                        <td>暂无介绍</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui1">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">check</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>暂无描述</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>bool</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>字符串</td>
+                                        <td>$rules</td>
+                                        <td>判断规则,可以使字符串可以是数组,字符串用【,】分割也可以,判断的标准</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>整型</td>
+                                        <td>$uid</td>
+                                        <td>需要判断的用户id,判断这个用户是不是在规则的权限里</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>整型</td>
+                                        <td>$type</td>
+                                        <td>这个type是用来标识rule表内不同规则的一个区分,通常默认为1即可</td>
+                                        <td>false</td>
+                                        <td>1</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>整型</td>
+                                        <td>$access_type</td>
+                                        <td>该参数用来判断去读取哪一个member【用户表】,适合拥有多个用户体系的</td>
+                                        <td>false</td>
+                                        <td></td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>字符串</td>
+                                        <td>$mode</td>
+                                        <td>检查的模式,通常保持url即可</td>
+                                        <td>false</td>
+                                        <td>url</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>字符串</td>
+                                        <td>$relation</td>
+                                        <td>关联规则的模式,是或还是与</td>
+                                        <td>or</td>
+                                        <td>or|and</td>
+                                        <td></td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">getAuthList</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>暂无描述</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>array</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>整型</td>
+                                        <td>$uid</td>
+                                        <td>用户的id</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>整型</td>
+                                        <td>$type</td>
+                                        <td>类型</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>整型</td>
+                                        <td>$access_type</td>
+                                        <td>这个用户对应的表,是总后台还是各个子后台</td>
+                                        <td>false</td>
+                                        <td></td>
+                                        <td>''</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">获取用户用户组</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>根据用户id获取用户组,返回值为数组</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>mixed</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>整型</td>
+                                        <td>$uid</td>
+                                        <td>暂无介绍</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>整型</td>
+                                        <td>$access_type</td>
+                                        <td>这个用户对应的表,是总后台还是各个子后台</td>
+                                        <td>false</td>
+                                        <td></td>
+                                        <td>''</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">根据指定的字段查询到用户的信息</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>根据指定的字段查询到用户的信息</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>mixed</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>字符串</td>
+                                        <td>$username</td>
+                                        <td>用户的username</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>整型</td>
+                                        <td>$access_type</td>
+                                        <td>这个用户对应的表,是总后台还是各个子后台</td>
+                                        <td>false</td>
+                                        <td></td>
+                                        <td>''</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui5">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">获得用户资料,根据自己的情况读取数据库</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>获得用户资料,根据自己的情况读取数据库</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>mixed</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>整型</td>
+                                        <td>$uid</td>
+                                        <td>用户id</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>整型</td>
+                                        <td>$access_type</td>
+                                        <td>这个用户对应的表,是总后台还是各个子后台</td>
+                                        <td>false</td>
+                                        <td></td>
+                                        <td>''</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">获取配置参数, 方便其他地方调用</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>暂无描述</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>array|null</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td></td>
+                                        <td>null</td>
+                                        <td>暂无介绍</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui7">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">获取权限菜单</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>获取到用户的权限菜单,按照tree格式返回</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>array</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>整型</td>
+                                        <td>$uid</td>
+                                        <td>暂无介绍</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                    </div>
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>

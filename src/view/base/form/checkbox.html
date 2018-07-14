@@ -1,0 +1,13 @@
+<label class="layui-form-label">{$_formcontrols_val['label']}</label>
+<div class="{$_formcontrols_val['info']['inline']|default='layui-input-block'}">
+    {php}
+        if(empty($_formcontrols_val['info']['options'])) $_formcontrols_val['info']['options'] = [];
+        $_checkboxstr = "";
+        foreach($_formcontrols_val['options'] as $i => $v){
+            $_checkboxstr .= $i . '="' . $v . '" ';
+        }
+    {/php}
+    {foreach name="_formcontrols_val['info']['options']" item="op_val" key="op_i"}
+        <input type="{$_formcontrols_val['type']}" value="{$op_val['value']}" title="{$op_val['text']}" {:htmlspecialchars_decode($_checkboxstr)} {$op_val['checked']?'checked':''} />
+    {/foreach}
+</div>

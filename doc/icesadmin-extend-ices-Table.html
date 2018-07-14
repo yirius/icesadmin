@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>apidoc</title>
+
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                icesadmin\extend\ices\Table [extend: icesadmin\extend\ices\Backview]
+            </a>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="col-xs-3">
+        <ul class="nav nav-pills nav-stacked" role="tablist">
+                            <li role="presentation" class="active">
+                    <a href="#icesui0" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\ices\Table::addCheckbox</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui1" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\ices\Table::addColumn</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui2" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\ices\Table::addToolColumn</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui3" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\ices\Table::addConsoleJs</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui4" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\ices\Table::addToolbar</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui5" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\ices\Table::addTemplate</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui6" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\ices\Table::addTableBtn</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui7" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\ices\Table::addTableJavascript</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui8" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\ices\Table::setTableform</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui9" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\ices\Table::setTablename</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui10" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\ices\Table::setEditEvent</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui11" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\ices\Table::setTableSearchForm</a>
+                </li>
+                            <li role="presentation" class="">
+                    <a href="#icesui12" aria-controls="home" role="tab" data-toggle="tab">icesadmin\extend\ices\Table::show</a>
+                </li>
+                    </ul>
+    </div>
+    <div class="col-xs-9">
+        <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="icesui0">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">在左侧添加一个checkbox</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>在左侧添加一个checkbox</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>$this</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                        </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui1">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">添加一列</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>添加一列</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>$this</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>字符串</td>
+                                        <td>$field</td>
+                                        <td>对应的返回data中的字段</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>字符串</td>
+                                        <td>$title</td>
+                                        <td>对应的上方显示的title</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>布尔型</td>
+                                        <td>$sort</td>
+                                        <td>是否可以排列,排列提交到服务端进行</td>
+                                        <td>false</td>
+                                        <td>false</td>
+                                        <td>true|false</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>数组</td>
+                                        <td>$config</td>
+                                        <td>其他配置参考,会自动带入到cols中</td>
+                                        <td>false</td>
+                                        <td>[]</td>
+                                        <td>''</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">添加一个固定在右侧的toolbar</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>添加一个固定在右侧的toolbar,只有width和title需要设置,如果有更改tablename,需要在此之前</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>Table</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>字符串</td>
+                                        <td>$title</td>
+                                        <td>这一列上面名字</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>整型</td>
+                                        <td>$width</td>
+                                        <td>列的长度,默认是150</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">添加一个js文件</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>当不是直接在PHP内手写JS,JS较多,新开了一个.js文件,需要引用一下</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>$this</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>字符串</td>
+                                        <td>$js</td>
+                                        <td>请把js文件放在/public/app/controller内,然后只添加js名称即可</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">添加toolbar对应内容</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>添加toolbar对应内容</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>$this</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>字符串</td>
+                                        <td>$html</td>
+                                        <td>这个可以为html,也是可以为edit/del这两个默认定义的</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>布尔型</td>
+                                        <td>$condition</td>
+                                        <td>这个是专门针对del方法设置的,需要使用比如d.id&gt;10这种来判断</td>
+                                        <td>false</td>
+                                        <td>false</td>
+                                        <td>string</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui5">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">添加一个template,在column中使用</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>添加一个template,在column中使用</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>$this</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>字符串</td>
+                                        <td>$id</td>
+                                        <td>template对应的id,界面最好不要重复</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>字符串</td>
+                                        <td>$content</td>
+                                        <td>需要的内容</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">添加对应按钮</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>添加对应按钮。默认值可以直接传入add/del,如果是默认值的话需要调用setTableform,否则点击无效</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>$this</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>字符串</td>
+                                        <td>$btn</td>
+                                        <td>默认值可以直接传入add/del,或自己的html</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui7">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">加入table的js</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>加入table的js,不是page的js</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>$this</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>字符串</td>
+                                        <td>$javascript</td>
+                                        <td>暂无介绍</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui8">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">设置table对应的编辑或者弹出框</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>设置table对应的编辑或者弹出框,如果有弹出框,弹出框的Form属性isPop最好是true</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>$this</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>字符串</td>
+                                        <td>$view</td>
+                                        <td>展示的界面,如果是后端的话需要写成../../才可以</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>字符串</td>
+                                        <td>$title</td>
+                                        <td>题头名称</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>字符串</td>
+                                        <td>$url</td>
+                                        <td>最后提交的地址</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>字符串</td>
+                                        <td>$btn</td>
+                                        <td>表单的提交按钮名称,需要在form中设置,如果不存在,如果是一套后台的话,应该是[您设置的名称-submit],不存在则点击提交table不会刷新且下方无作用</td>
+                                        <td>false</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>字符串</td>
+                                        <td>$rendercall</td>
+                                        <td>pop弹窗渲染完成了的js回调</td>
+                                        <td>false</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>字符串</td>
+                                        <td>$submitcall</td>
+                                        <td>暂无介绍</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>数组</td>
+                                        <td>$area</td>
+                                        <td>暂无介绍</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui9">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">设置Table的name</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>设置table的name,方便自定义事件的时候触发</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>$this</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>字符串</td>
+                                        <td>$tablename</td>
+                                        <td>name</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui10">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">设置table的edit事件</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>当对某一列设置了edit=text之后需要自己处理事件</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>$this</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>字符串</td>
+                                        <td>$event</td>
+                                        <td>事件内容</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui11">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">设置table上方查找的form</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>设置table上方查找的form,和Form有一定种类差别</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>$this</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td></td>
+                                        <td>Form</td>
+                                        <td>暂无介绍</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                        <div role="tabpanel" class="tab-pane " id="icesui12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">返回渲染的html</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>描述: </td>
+                                <td>返回渲染的html,必须设置从哪个url获取到列表信息</td>
+                            </tr>
+                            <tr>
+                                <td>返回值: </td>
+                                                                <td>\think\Response</td>
+                            </tr>
+                                                        </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>名称</th>
+                                    <th>介绍</th>
+                                    <th>是否必须</th>
+                                    <th>默认值</th>
+                                    <th>可选参数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                        <td>字符串</td>
+                                        <td>$tableUrl</td>
+                                        <td>获取到列表信息的url,最好配合ices\Model使用</td>
+                                        <td>true</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>字符串</td>
+                                        <td>$tableDeleteUrl</td>
+                                        <td>删除的地址,table默认删除是需要输入密码的</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                        <td>''</td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                    </div>
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>

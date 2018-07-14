@@ -1,0 +1,180 @@
+{if !empty($_pagestyle) }
+<style>{$_pagestyle}</style>
+{/if}
+<title>{$_pagetitle[count($_pagetitle)-1]}</title>
+
+<div class="layui-card layadmin-header">
+    <div class="layui-breadcrumb" lay-filter="breadcrumb">
+        <a lay-href="">主页</a>
+        {foreach name="_pagetitle" item="_title_val" key="_title_i"}
+        <a><cite>{$_title_val}</cite></a>
+        {/foreach}
+    </div>
+</div>
+
+<div class="layui-fluid">
+    <div class="layui-card">
+        {if !empty($_formcontrols) }
+        <div class="layui-form layui-card-header layuiadmin-card-header-auto" lay-filter="{$_tablename}-form">
+            <div class="layui-form-item">
+                {foreach name="_formcontrols" item="_form_val" key="_form_i"}
+                    {foreach name="_form_val" key="_formcontrols_val_i" item="_formcontrols_val"}
+                        <div class="layui-inline">
+                            {php}$_formcontrols_val['options']['inline'] = "layui-input-inline";{/php}
+                            {switch $_formcontrols_val['type'] }
+                                {case text|password }
+                                    {include file="base/form/text" /}
+                                {/case}
+                                {case select }
+                                    {include file="base/form/select" /}
+                                {/case}
+                                {case mulselect }
+                                    {include file="base/form/mulselect" /}
+                                {/case}
+                                {case checkbox|radio }
+                                    {include file="base/form/checkbox" /}
+                                {/case}
+                                {case switch }
+                                    {include file="base/form/switch" /}
+                                {/case}
+                                {case textarea }
+                                    {include file="base/form/textarea" /}
+                                {/case}
+                                {case date }
+                                    {include file="base/form/date" /}
+                                {/case}
+                                {default /}
+                                    {$type}
+                            {/switch}
+                        </div>
+                    {/foreach}
+                {/foreach}
+                <div class="layui-inline">
+                    <button class="layui-btn layuiadmin-btn-admin" lay-submit lay-filter="{$_tablename}-search">
+                        <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        {/if}
+        <div class="layui-card-body">
+            <div style="padding-bottom: 10px;clear: both;height: 38px">
+                {:htmlspecialchars_decode($_tablebtns)}
+                <button class="layui-btn layui-btn-normal layuiadmin-btn-admin" data-type="refresh" style="float: right">
+                    <i class="layui-icon layui-icon-refresh-3"></i>
+                </button>
+            </div>
+
+            <table id="{$_tablename}" lay-filter="{$_tablename}"></table>
+
+            <script type="text/html" id="{$_tablename}-toolbar">
+                {:htmlspecialchars_decode($_tabletoolsbar)}
+            </script>
+
+            {foreach name="_tabletemplate" key="_tabletemplate_i" item="_tabletemplate_val"}
+            <script type="text/html" id="{$_tabletemplate_val['id']}">
+                {:htmlspecialchars_decode($_tabletemplate_val['content'])}
+            </script>
+            {/foreach}
+        </div>
+    </div>
+</div>
+
+<script>
+    layui.use({:json_encode($_tableconsolejs)}, function(){
+        var $ = layui.$
+                , admin = layui.admin
+                , table = layui.table
+                , form = layui.form
+                , think = layui.think;
+        /**
+         * 渲染form
+         */
+        form.render(null, '{$_tablename}-form');
+
+        //监听搜索
+        form.on('submit({$_tablename}-search)', function (data) {
+            var field = data.field;
+            //执行重载
+            table.reload('{$_tablename}', {
+                where: field
+            });
+        });
+
+        var {$_tablename}Instance = table.render({
+            elem: '#{$_tablename}',
+            url: '{$_tableurl}',
+            page: true,
+            cols: [{:json_encode($_tablecolumns)}]
+        });
+
+        var renderDoneCall = null, submitCallback = null;
+        {if !empty($_tableformurl['renderDoneCall'])}
+        renderDoneCall = eval("(function(){return function(data){ {$_tableformurl['renderDoneCall']} } })()");
+        {/if}
+        {if !empty($_tableformurl['submitCallback'])}
+        submitCallback = eval("(function(){return function(data){ {$_tableformurl['submitCallback']} } })()");
+        {/if}
+        //监听工具条
+        table.on('tool({$_tablename})', function (obj) {
+            var data = obj.data;
+            if (obj.event === 'icesadmin-del') {
+                {if !empty($_tabledelurl)}
+                    think.funcs['del'].call(this, {
+                        data: [data],
+                        url: '{$_tabledelurl}',
+                        table: '{$_tablename}'
+                    });
+                {/if}
+            } else if (obj.event === 'icesadmin-edit') {
+                {if !empty($_tableformurl)}
+                think.funcs['add'].call(this,{
+                    view: "{$_tableformurl['view']|default=''}" + (typeof data != "undefined" ? '?' + layui.util.object2url(data) : 'null'),
+                    title: "{$_tableformurl['title'][1]|default=''}",
+                    btn: "{$_tableformurl['btn']|default=''}",
+                    url: "{$_tableformurl['url']|default=''}",
+                    table: '{$_tablename|default=""}',
+                    data: data
+                    {if !empty($_tableformurl['area'])},area: {:json_encode($_tableformurl['area'])}{/if}
+                }, renderDoneCall, submitCallback);
+                {/if}
+            }
+        });
+
+        /**
+         * 用户的删除和添加按钮的点击
+         */
+        $('.layui-btn.layuiadmin-btn-admin').on('click', function () {
+            var type = $(this).data('type');
+            if (type == "del") {
+                {if !empty($_tabledelurl)}
+                think.events['del'].call(this, '{$_tablename}', '{$_tabledelurl}');
+                {/if}
+            } else if (type == "add") {
+                {if !empty($_tableformurl)}
+                    think.funcs['add'].call(this,{
+                        view: "{$_tableformurl['view']|default=''}",
+                        title: "{$_tableformurl['title'][1]|default=''}",
+                        btn: "{$_tableformurl['btn']|default=''}",
+                        url: "{$_tableformurl['url']|default=''}",
+                        table: '{$_tablename|default=""}'
+                        {if !empty($_tableformurl['area'])},area: {:json_encode($_tableformurl['area'])}{/if}
+                    }, renderDoneCall, submitCallback);
+                {/if}
+            } else if(type == "refresh"){
+                {$_tablename}Instance.reload();
+            }
+        });
+
+        {if !empty($_tableeditevent)}
+            table.on('edit({$_tablename})', {:htmlspecialchars_decode($_tableeditevent)});
+        {/if}
+
+        {if !empty($_tablejavascript)}
+            {:htmlspecialchars_decode($_tablejavascript)}
+        {/if}
+    });
+</script>
+{if !empty($_pagescript)}
+{:htmlspecialchars_decode($_pagescript)}
+{/if}

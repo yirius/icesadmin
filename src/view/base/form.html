@@ -1,0 +1,27 @@
+{if !empty($_pagestyle) }
+<style>{
+    $ _pagestyle
+}</style>
+{/if}
+<title>{$_pagetitle[count($_pagetitle)-1]}</title>
+
+<div class="layui-card layadmin-header">
+    <div class="layui-breadcrumb" lay-filter="breadcrumb">
+        <a lay-href="">主页</a>
+        {foreach name="_pagetitle" item="_title_val" key="_title_i"}
+        <a><cite>{$_title_val}</cite></a>
+        {/foreach}
+    </div>
+</div>
+
+<div class="layui-fluid">
+    <div class="layui-card">
+        <!--<div class="layui-card-header">表单组合</div>-->
+        <div class="layui-card-body" style="padding: 15px;">
+            {include file="base/formpop" /}
+        </div>
+    </div>
+</div>
+{if !empty($_pagescript)}
+{:htmlspecialchars_decode($_pagescript)}
+{/if}

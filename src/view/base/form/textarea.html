@@ -1,0 +1,4 @@
+<label class="layui-form-label">{$_formcontrols_val['label']}</label>
+<div class="{$_formcontrols_val['info']['inline']|default='layui-input-block'}">
+    <textarea {foreach name="_formcontrols_val['options']" item="inline" key="inline_i"} {if !is_array($inline)} {$inline_i}="{$inline}" {/if} {/foreach} >{$_formcontrols_val['info']['value']|default=''}</textarea>
+</div>
