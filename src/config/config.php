@@ -37,7 +37,7 @@ return [
     ],
     'upload' => [
         'images' => [
-            'water' => Env::get("root_path") . "/public/logo.png",
+            'water' => false,
             'validate' => [
                 'size' => 1024*1024,
                 'ext' => "jpg,png,gif,jpeg,do,bmp"
