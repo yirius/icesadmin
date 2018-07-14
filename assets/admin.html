@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>管理后台</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="./layui/css/layui.css" media="all">
+    <!-- 引用fancybox,直接data-fancybox="" 就可以使用 -->
+    <link rel="stylesheet" href="./layui/css/fancybox/fancybox.css" media="all">
+    <!-- 引用webuploader -->
+    <link rel="stylesheet" href="./layui/css/webuploader/webuploader.css" media="all">
+</head>
+<body>
+<div id="LAY_app"></div>
+<script src="./layui/layui.js"></script>
+<!--自动引入一下ueditor,如果不需要使用可以去掉-->
+<script src="./layui/ueditor/ueditor.config.js"></script>
+<script src="./layui/ueditor/ueditor.all.js"></script>
+<script>
+    layui.config({
+        base: './app/',
+        version: new Date().getTime()
+    }).use('index');
+</script>
+</body>
+</html>
+
+
