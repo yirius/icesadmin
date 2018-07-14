@@ -163,7 +163,11 @@ class Model extends \think\Model
         foreach($ids as $i => $v){
             $del_id = is_array($v)?$v[$pk]:$v;
             if(!in_array($del_id, $notDelete)){
-                $flag = self::destroy($del_id, $force_delete);
+                if($force_delete){
+                    $flag = self::where($pk, $del_id)->delete();
+                }else{
+                    $flag = self::destroy($del_id, $force_delete);
+                }
                 if(!$flag)
                     $errorDelete[] = $del_id;
             }
