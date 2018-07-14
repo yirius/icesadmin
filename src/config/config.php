@@ -10,7 +10,7 @@ return [
         'view_assets' => "/icesadmin/assets"
     ],
     'menu' => [
-        'topmenu' => 1,
+        'topmenu' => 0,
         'spread' => 0,//如果是false,就是默认全不展开,如果是0及以上,就是展开着一个
         'userinfo' => []//需要返回的用户信息字段
     ],
