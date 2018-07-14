@@ -1,7 +1,7 @@
 {
   "name": "yirius/icesadmin",
   "description": "thinkphp5.1 admin ui use layui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "think-extend",
   "license": "MIT",
   "authors": [
