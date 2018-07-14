@@ -1,0 +1,71 @@
+<div class="layui-form" lay-filter="layuiadmin-form-admin" style="padding: 20px 30px 0 0;">
+    <div class="layui-form-item">
+        <script type="text/html" template>
+            <input type="hidden" name="id" value="{{ d.params.id || 0 }}" autocomplete="off" class="layui-input">
+        </script>
+        <label class="layui-form-label">登录名</label>
+        <div class="layui-input-inline">
+            <script type="text/html" template>
+                <input type="text" name="username" value="{{ d.params.username || '' }}" lay-verify="required"
+                       placeholder="请输入用户名" autocomplete="off" class="layui-input">
+            </script>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">手机</label>
+        <div class="layui-input-inline">
+            <script type="text/html" template>
+                <input type="text" name="phone" value="{{ d.params.phone || '' }}" lay-verify="phone"
+                       placeholder="请输入号码" autocomplete="off" class="layui-input">
+            </script>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">真实姓名</label>
+        <div class="layui-input-inline">
+            <script type="text/html" template>
+                <input type="text" name="realname" value="{{ d.params.realname || '' }}" lay-verify="required"
+                       placeholder="请输入真实姓名" autocomplete="off" class="layui-input">
+            </script>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">密码</label>
+        <div class="layui-input-inline">
+            <script type="text/html" template>
+                <input type="password" name="password" value="" placeholder="请输入密码, 如果不修改则无需填写" autocomplete="off"
+                       class="layui-input">
+            </script>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">审核状态</label>
+        <div class="layui-input-inline">
+            <script type="text/html" template>
+                <input type="checkbox" lay-filter="switch" name="status" value="1" {{ d.params.status? 'checked' : '' }} lay-skin="switch" lay-text="通过|待审核">
+            </script>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">分配权限</label>
+        <div class="layui-input-block">
+            <script type="text/html" template lay-url="{{ layui.think.admin.user_role_path}}?id={{ d.params.id }}" lay-done="layui.form.render(null, 'layuiadmin-form-admin')">
+                {{# layui.each(d.data, function(n, v){ }}
+                    <input type="checkbox" name="role[]" lay-skin="primary" title="{{ v.text }}" value="{{ v.value }}" {{ v.checked? 'checked' : '' }}>
+                {{# }); }}
+            </script>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        <div class="layui-input-inline">
+            <input type="button" lay-submit lay-filter="adminuser-form-submit" value="确认" class="layui-btn">
+        </div>
+    </div>
+</div>
+
+<script>
+    layui.use(['admin', 'form'], function () {
+        var $ = layui.$, form = layui.form;
+    });
+</script>

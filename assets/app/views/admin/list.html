@@ -1,0 +1,137 @@
+<title>后台管理员</title>
+
+<div class="layui-card layadmin-header">
+    <div class="layui-breadcrumb" lay-filter="breadcrumb">
+        <a lay-href="">主页</a>
+        <a><cite>用户设置</cite></a>
+        <a><cite>后台管理员</cite></a>
+    </div>
+</div>
+
+<div class="layui-fluid">
+    <div class="layui-card">
+        <div class="layui-form layui-card-header layuiadmin-card-header-auto" lay-filter="adminuser-form">
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">用户名</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="username" placeholder="请输入" autocomplete="off" class="layui-input"/>
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">手机号</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="phone" placeholder="请输入" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <button class="layui-btn layuiadmin-btn-admin" lay-submit lay-filter="adminuser-form-search">
+                        <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-card-body">
+            <div style="padding-bottom: 10px;">
+                <button class="layui-btn layui-btn-danger layuiadmin-btn-admin" data-type="del">删除</button>
+                <button class="layui-btn layuiadmin-btn-admin" data-type="add">添加</button>
+            </div>
+
+            <table id="adminuser-table" lay-filter="adminuser-table"></table>
+            <script type="text/html" id="table-useradmin-admin">
+                <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="edit">
+                    <i class="layui-icon layui-icon-edit"></i>编辑
+                </a>
+                {{#  if(d.id == 1){ }}
+                <a class="layui-btn layui-btn-disabled layui-btn-xs">
+                    <i class="layui-icon layui-icon-delete"></i>删除
+                </a>
+                {{#  } else { }}
+                <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">
+                    <i class="layui-icon layui-icon-delete"></i>删除
+                </a>
+                {{#  } }}
+            </script>
+        </div>
+    </div>
+</div>
+
+<script>
+    layui.use(['admin', 'table'], function () {
+        var $ = layui.$
+                , admin = layui.admin
+                , view = layui.view
+                , table = layui.table
+                , form = layui.form
+                , think = layui.think;
+        /**
+         * 渲染form
+         */
+        form.render(null, 'adminuser-form');
+
+        //监听搜索
+        form.on('submit(adminuser-form-search)', function (data) {
+            var field = data.field;
+            //执行重载
+            table.reload('adminuser-table', {
+                where: field
+            });
+        });
+
+        table.render({
+            elem: '#adminuser-table',
+            url: layui.think.admin.user.list,
+            cols: [[
+                {type: 'checkbox', fixed: 'left'},
+                {field: 'id', width: 80, title: 'ID', sort: true},
+                {field: 'username', title: '登录名'},
+                {field: 'realname', title: '真实姓名'},
+                {field: 'phone', title: '手机'},
+                {field: 'createtime', title: '加入时间', sort: true},
+                {title: "操作", width: 150, align: "center", fixed: "right", toolbar: "#table-useradmin-admin"}
+            ]],
+            page: true,
+            text: '对不起，加载出现异常！'
+        });
+
+        //监听工具条
+        table.on('tool(adminuser-table)', function (obj) {
+            var data = obj.data;
+            if (obj.event === 'del') {
+                think.funcs['del'].call(this, {
+                    data: [data],
+                    url: think.admin.user.del,
+                    table: 'adminuser-table'
+                });
+            } else if (obj.event === 'edit') {
+                think.funcs['add'].call(this,{
+                    view: "./admin/pop/adminlist",
+                    title: "编辑管理员",
+                    btn: "adminuser-form-submit",
+                    url: think.admin.user.form,
+                    table: 'adminuser-table',
+                    data: data
+                });
+            }
+        });
+
+        /**
+         * 用户的删除和添加按钮的点击
+         */
+        $('.layui-btn.layuiadmin-btn-admin').on('click', function () {
+            var type = $(this).data('type');
+            if (type == "del") {
+                think.events['del'].call(this, 'adminuser-table', think.admin.user.del);
+            } else if (type == "add") {
+                think.funcs['add'].call(this,{
+                    view: "./admin/pop/adminlist",
+                    title: "添加管理员",
+                    btn: "adminuser-form-submit",
+                    url: think.admin.user.form,
+                    table: 'adminuser-table'
+                });
+            }
+        });
+    });
+</script>

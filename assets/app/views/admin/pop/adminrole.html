@@ -1,0 +1,39 @@
+<div class="layui-form" lay-filter="adminrole-form" style="padding: 20px 30px 0 0;">
+    <div class="layui-form-item">
+        <script type="text/html" template>
+            <input type="hidden" name="id" value="{{ d.params.id || 0 }}" id="adminrole-form-id" autocomplete="off" class="layui-input">
+        </script>
+        <label class="layui-form-label">角色</label>
+        <div class="layui-input-block">
+            <script type="text/html" template>
+                <input type="text" name="title" value="{{ d.params.title || '' }}" lay-verify="required"
+                       placeholder="请输入角色名称" autocomplete="off" class="layui-input">
+            </script>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">审核状态</label>
+        <div class="layui-input-inline">
+            <script type="text/html" template lay-done="layui.form.render('checkbox', 'adminrole-form')">
+                <input type="checkbox" lay-filter="switch" name="status" value="1" {{ d.params.status? 'checked' : '' }} lay-skin="switch" lay-text="通过|待审核">
+            </script>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">权限范围</label>
+        <div class="layui-input-block">
+            <!--<script type="text/html" template lay-url="{{ layui.think.admin.role_rule_path }}?id={{ d.params.id || 0 }}" lay-done="layui.form.render(null, 'adminrole-form')">-->
+                <!--{{# layui.each(d.data, function(n, v){ }}-->
+                    <!--<input type="checkbox" name="rules[]" lay-skin="primary" title="{{ v.text }}" value="{{ v.value }}" {{ v.checked? 'checked' : '' }} />-->
+                <!--{{# }); }}-->
+            <!--</script>-->
+            <ul id="icesadmin-rulesTree"></ul>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        <div class="layui-input-inline">
+            <input type="button" lay-submit lay-filter="adminrole-form-submit" value="确认" class="layui-btn">
+        </div>
+    </div>
+</div>

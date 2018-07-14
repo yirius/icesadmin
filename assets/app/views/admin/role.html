@@ -1,0 +1,128 @@
+<title>角色管理</title>
+
+<div class="layui-card layadmin-header">
+    <div class="layui-breadcrumb" lay-filter="breadcrumb">
+        <a lay-href="">主页</a>
+        <a><cite>用户设置</cite></a>
+        <a><cite>角色管理</cite></a>
+    </div>
+</div>
+
+<div class="layui-fluid">
+    <div class="layui-card">
+        <div class="layui-card-body">
+            <div style="padding-bottom: 10px;">
+                <button class="layui-btn layui-btn-danger layuiadmin-btn-admin" data-type="del">删除</button>
+                <button class="layui-btn layuiadmin-btn-admin" data-type="add">添加</button>
+            </div>
+
+            <table id="adminrole-table" lay-filter="adminrole-table"></table>
+            <script type="text/html" id="table-useradmin-admin">
+                <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="edit">
+                    <i class="layui-icon layui-icon-edit"></i>编辑
+                </a>
+                {{#  if(d.id == 1){ }}
+                <a class="layui-btn layui-btn-disabled layui-btn-xs">
+                    <i class="layui-icon layui-icon-delete"></i>删除
+                </a>
+                {{#  } else { }}
+                <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">
+                    <i class="layui-icon layui-icon-delete"></i>删除
+                </a>
+                {{#  } }}
+            </script>
+        </div>
+    </div>
+</div>
+
+<script>
+    layui.use(['admin', 'table', 'treePlus'], function () {
+        var $ = layui.$
+                , admin = layui.admin
+                , table = layui.table
+                , form = layui.form
+                , think = layui.think;
+
+        table.render({
+            elem: '#adminrole-table',
+            url: layui.think.admin.role.list,
+            cols: [[
+                {type: 'checkbox', fixed: 'left'},
+                {field: 'id', width: 80, title: 'ID', sort: true},
+                {field: 'title', title: '角色名称'},
+                {title: "操作", width: 150, align: "center", fixed: "right", toolbar: "#table-useradmin-admin"}
+            ]],
+            page: true,
+            text: '对不起，加载出现异常！'
+        });
+
+        //监听工具条
+        table.on('tool(adminrole-table)', function (obj) {
+            var data = obj.data;
+            if (obj.event === 'del') {
+                think.funcs['del'].call(this, {
+                    data: [data],
+                    url: think.admin.role.del,
+                    table: 'adminrole-table'
+                });
+            } else if (obj.event === 'edit') {
+                think.funcs['add'].call(this, {
+                    view: "./admin/pop/adminrole",
+                    title: "编辑角色",
+                    btn: "adminrole-form-submit",
+                    url: think.admin.role.form,
+                    table: 'adminrole-table',
+                    data: data
+                }, function () {
+                    admin.req({
+                        method: "POST",
+                        url: think.admin.role.rule_tree,
+                        data: {id: data.id},
+                        done: function (res) {
+                            layui.treePlus({
+                                elem: '#icesadmin-rulesTree' //传入元素选择器
+                                , formfilter: "adminrole-form"
+                                , check: "checkbox"
+                                , checkname: "rules"
+                                , nodes: res.data
+                            });
+                        }
+                    });
+                });
+            }
+        });
+
+        /**
+         * 用户的删除和添加按钮的点击
+         */
+        $('.layui-btn.layuiadmin-btn-admin').on('click', function () {
+            var type = $(this).data('type');
+            if (type == "del") {
+                think.events['del'].call(this, 'adminrole-table', think.admin.role.del);
+            } else if (type == "add") {
+                think.funcs['add'].call(this, {
+                    view: "./admin/pop/adminrole",
+                    title: "添加角色",
+                    btn: "adminrole-form-submit",
+                    url: think.admin.role.form,
+                    table: 'adminrole-table'
+                }, function () {
+                    admin.req({
+                        method: "POST",
+                        url: think.admin.role.rule_tree,
+                        data: {id: 0},
+                        done: function (res) {
+                            layui.treePlus({
+                                elem: '#icesadmin-rulesTree' //传入元素选择器
+                                , formfilter: "adminrole-form"
+                                , check: "checkbox"
+                                , checkname: "rules"
+                                , nodes: res.data
+                            });
+                        }
+                    });
+                });
+            }
+        });
+    });
+</script>

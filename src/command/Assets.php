@@ -25,9 +25,9 @@ class Assets extends Command
     protected function execute(Input $input, Output $output)
     {
         $output->comment("start copy static/");
-        $this->copy_dir(dirname(__DIR__) . "/assets/", Env::get("root_path"). "/public/static/");
-        if(is_dir(Env::get("root_path"). "/public/static/")){
-            $output->comment("copy to static/ success");
+        $this->copy_dir(dirname(ices_root) . "/assets/", Env::get("root_path"). "/public/");
+        if(is_dir(Env::get("root_path"). "/public/app/")){
+            $output->comment("copy to public/ success");
         }
     }
 

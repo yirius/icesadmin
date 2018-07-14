@@ -1,0 +1,92 @@
+<!-- 主题设置模板 -->
+
+<script type="text/html" template lay-done="layui.data.theme();">
+    {{#
+    var local = layui.data(layui.setter.tableName)
+    ,theme = local.theme || {}
+    ,themeColorIndex =  parseInt((theme && theme.color) ? theme.color.index : 0) || 0;
+    }}
+
+    <div class="layui-card-header">
+        配色方案
+    </div>
+    <div class="layui-card-body layadmin-setTheme">
+        <ul class="layadmin-setTheme-color">
+            {{# layui.each(layui.setter.theme.color, function(index, item){ }}
+            <li layadmin-event="setTheme" data-index="{{ index }}" data-alias="{{ item.alias }}"
+                {{ index=== themeColorIndex ?
+            'class="layui-this"' : '' }} title="{{ item.alias }}">
+            <div class="layadmin-setTheme-header" style="background-color: {{ item.header }};"></div>
+            <div class="layadmin-setTheme-side" style="background-color: {{ item.main }};">
+                <div class="layadmin-setTheme-logo" style="background-color: {{ item.logo }};"></div>
+            </div>
+            </li>
+            {{# }); }}
+        </ul>
+    </div>
+
+    <div class="layui-card-header">
+        状态开关
+    </div>
+    <div class="layui-card-body layadmin-setTheme">
+        <form class="layui-form" lay-filter="themeForm">
+            <div class="layui-form-item"><label class="layui-form-label">通栏显示</label>
+                <div class="layui-input-block">
+                    {{# layui.setter.theme }}
+                    <input type="checkbox" name="switch" lay-skin="switch" lay-filter="ices_header_bgcolor" id="ices_header_bgcolor" checked/>
+                </div>
+            </div>
+            <div class="layui-form-item"><label class="layui-form-label">白色菜单</label>
+                <div class="layui-input-block">
+                    <input type="checkbox" name="switch" lay-skin="switch" lay-filter="ices_menu_bgcolor" id="ices_menu_bgcolor" checked/>
+                </div>
+            </div>
+        </form>
+    </div>
+</script>
+
+<script>
+    layui.data.theme = function () {
+        layui.use(['form', 'setter', 'jquery'], function () {
+            var form = layui.form
+                    , admin = layui.admin
+                    , setter = layui.setter
+                    , $ = layui.jquery;
+
+            //首先赋值初始值
+            var local = layui.data(setter.tableName);
+            if(local.theme.headerBlock == 2){
+                $("#ices_header_bgcolor").attr("checked", false);
+            }
+            if(local.theme.menuWhite == 2){
+                $("#ices_menu_bgcolor").attr("checked", false);
+            }
+
+            form.render(null, "themeForm");
+
+            /**
+             * 监听变化
+             */
+            function setThemeAttr(data, field){
+                var local = layui.data(setter.tableName);
+                if(data.elem.checked){
+                    //是通栏
+                    local.theme[field] = 1;
+                }else{
+                    local.theme[field] = 2;
+                }
+                layui.data(setter.tableName, {
+                    key: 'theme'
+                    ,value: local.theme
+                });
+                admin.theme(local.theme);
+            }
+            form.on("switch(ices_header_bgcolor)", function(data){
+                setThemeAttr(data, "headerBlock");
+            });
+            form.on("switch(ices_menu_bgcolor)", function(data){
+                setThemeAttr(data, "menuWhite");
+            });
+        });
+    };
+</script>
