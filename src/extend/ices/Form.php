@@ -481,6 +481,9 @@ class Form extends Backview
         ], $options);
         $options = array_filter($options);
 
+        if(isset($this->formValue[$name])){
+            $options['value'] = $this->formValue[$name];
+        }
         $this->formConsoleJs[] = "laydate";
 
         return $this->addControl("date", $label, array_merge([
@@ -506,6 +509,9 @@ class Form extends Backview
             'name' => $name
         ], $options);
         $options = array_filter($options);
+        if(isset($this->formValue[$name])){
+            $options['placeholder'] = $this->formValue[$name];
+        }
         return $this->addControl("ueditor", $label, array_merge([
             'inline' => "layui-input-block"
         ], $info), $options);
