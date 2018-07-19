@@ -502,7 +502,7 @@ class Form extends Backview
     * @param array $options 直接渲染在input上面的各种attr,赋值value需要写在options内 false [] ''
     * @return Form
     */
-    public function addUeditor($name, $label, $placeholder = '请输入', $info = [], $options = []){
+    public function addUeditor($name, $label, $placeholder = '', $info = [], $options = []){
         $options = array_merge([
             'placeholder' => $placeholder,
             'style' => "",
