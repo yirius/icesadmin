@@ -267,11 +267,12 @@ class Auth
      * @description 获取到用户的权限菜单,按照tree格式返回
      * @createtime: 2018/7/10 21:25
      * @param int $uid
+     * @param int $access_type
      * @return array
      */
-    public function getAuthMenu($uid)
+    public function getAuthMenu($uid, $access_type = 0)
     {
-        $list = $this->getAuthList($uid, 1);
+        $list = $this->getAuthList($uid, 1, $access_type);
         $menu = Db::name($this->config['auth_menu'])->order('sort', 'desc')->select();
         //将菜单id作为数组key
         $keys = array_column($menu, 'id');

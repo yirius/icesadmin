@@ -10,11 +10,13 @@
         {/php}
         {foreach name="_formcontrols_val['info']['options']" item="op_val" key="op_i"}
             {if empty($op_val['sub'])}
-                <option value="{$op_val['value']}" {$op_val['checked']?'selected':''} {$op_val['disabled']?'disabled':''}>{$op_val['text']}</option>
+                {php}if(empty($op_val['data'])) $op_val['data'] = [];{/php}
+                <option value="{$op_val['value']}" {$op_val['checked']?'selected':''} {$op_val['disabled']?'disabled':''} {foreach name="op_val['data']" item="data_val" key="data_i"}data-{$data_i}="{$data_val}"{/foreach}>{$op_val['text']}</option>
             {else /}
                 <optgroup label="{$op_val['text']}">
                     {foreach name="op_val['sub']" item="op_sub_val" key="op_sub_i"}
-                        <option value="{$op_sub_val['value']}" {$op_sub_val['checked']?'selected':''} {$op_sub_val['disabled']?'disabled':''}>{$op_sub_val['text']}</option>
+                    {php}if(empty($op_sub_val['data'])) $op_sub_val['data'] = [];{/php}
+                        <option value="{$op_sub_val['value']}" {$op_sub_val['checked']?'selected':''} {$op_sub_val['disabled']?'disabled':''} {foreach name="op_sub_val['data']" item="data_val" key="data_i"}data-{$data_i}="{$data_val}"{/foreach}>{$op_sub_val['text']}</option>
                     {/foreach}
                 </optgroup>
             {/if}
