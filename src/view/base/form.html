@@ -3,13 +3,17 @@
     $ _pagestyle
 }</style>
 {/if}
-<title>{$_pagetitle[count($_pagetitle)-1]}</title>
+<title>{:current($_pagetitle)}</title>
 
 <div class="layui-card layadmin-header">
     <div class="layui-breadcrumb" lay-filter="breadcrumb">
         <a lay-href="">主页</a>
         {foreach name="_pagetitle" item="_title_val" key="_title_i"}
+        {if !is_numeric($_title_i)}
+        <a lay-href="{$_title_i}">{$_title_val}</a>
+        {else /}
         <a><cite>{$_title_val}</cite></a>
+        {/if}
         {/foreach}
     </div>
 </div>
