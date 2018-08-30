@@ -125,13 +125,18 @@ class User
 
     public function editpwd($oldPassword, $password){
         $logininfo = Adminjwt::instance()->decodeHmac(input('param.access_token', ''));
-        $userinfo = Auth::instance()->getUserInfo($logininfo['id']);
+        $access_type = empty($logininfo['access_type']) ? 0 : $logininfo['access_type'];
+        $userinfo = Auth::instance()->getUserInfo($logininfo['id'], $access_type);
         if(sha1($oldPassword.$userinfo['salt']) != $userinfo['password']){
             $this->error("很抱歉, 您输入的原密码不正确,无法修改");
         }else{
-            IcesAdminMember::icesSave([
-                'password' => sha1($password . $userinfo['salt'])
-            ], ['id' => $logininfo['id']]);
+            if($access_type == 0){
+                IcesAdminMember::icesSave([
+                    'password' => sha1($password . $userinfo['salt'])
+                ], ['id' => $logininfo['id']]);
+            }else{
+                Db::name(Auth::instance()->getConfig("auth_user")[$access_type])->where('id', "=", $logininfo['id'])->update(['password' => sha1($password . $userinfo['salt'])]);
+            }
             $this->success("修改密码成功");
         }
     }

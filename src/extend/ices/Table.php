@@ -66,6 +66,7 @@ class Table extends Backview
      */
     protected $tableEditEvent = null;
 
+    protected $tableConfig = [];
     /**
      * @title 在左侧添加一个checkbox
      * @description 在左侧添加一个checkbox
@@ -207,9 +208,9 @@ class Table extends Backview
             }
         }else{
             if($btn == "del"){
-                $this->tablebtn .= '<button class="layui-btn layui-btn-danger layuiadmin-btn-admin" data-type="del">删除</button>';
+                $this->tablebtn .= '<button class="layui-btn layui-btn-danger layui-btn-sm layuiadmin-btn-admin" data-type="del">删除</button>';
             }else if($btn == "add"){
-                $this->tablebtn .= '<button class="layui-btn layuiadmin-btn-admin" data-type="add">添加</button>';
+                $this->tablebtn .= '<button class="layui-btn layui-btn-sm layuiadmin-btn-admin" data-type="add">添加</button>';
             }else{
                 $this->tablebtn .= $btn;
             }
@@ -297,6 +298,15 @@ class Table extends Backview
     }
 
     /**
+     * @param array $tableConfig
+     */
+    public function setTableConfig($tableConfig)
+    {
+        $this->tableConfig = $tableConfig;
+        return $this;
+    }
+
+    /**
      * @title 返回渲染的html
      * @description 返回渲染的html,必须设置从哪个url获取到列表信息
      * @createtime: 2018/7/13 21:00
@@ -324,6 +334,7 @@ class Table extends Backview
             ->assign("_tablejavascript", $this->tableJavascript)
             ->assign("_formcontrols", $this->tableSearchForm)
             ->assign("_tableeditevent", $this->tableEditEvent)
+            ->assign("_tableconfig", $this->tableConfig)
             ->render("base/table");
     }
 }

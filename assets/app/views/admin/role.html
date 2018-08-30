@@ -38,13 +38,18 @@
 <script>
     layui.use(['admin', 'table', 'treePlus'], function () {
         var $ = layui.$
-                , admin = layui.admin
-                , table = layui.table
-                , form = layui.form
-                , think = layui.think;
+            , setter = layui.setter
+            , admin = layui.admin
+            , table = layui.table
+            , form = layui.form
+            , think = layui.think;
 
         table.render({
             elem: '#adminrole-table',
+            where: {access_token: (layui.data(setter.tableName)[setter.request.tokenName] || '')},
+            response: {
+                statusCode: 1
+            },
             url: layui.think.admin.role.list,
             cols: [[
                 {type: 'checkbox', fixed: 'left'},

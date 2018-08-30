@@ -14,7 +14,7 @@ use think\model\concern\SoftDelete;
 
 class Model extends \think\Model
 {
-    use SoftDelete;
+//    use SoftDelete;
 
     protected $autoWriteTimestamp = 'datetime';
     // 定义时间戳字段名
@@ -221,7 +221,7 @@ class Model extends \think\Model
         }else{
             //否则就是新增操作
             $info = self::create($add);
-            return $info->getLastInsID();
+            return $info->id;
         }
     }
 }

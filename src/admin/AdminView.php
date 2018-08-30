@@ -38,6 +38,10 @@ class AdminView
                 "form.render(null, 'icesadmin-ruleform')"
             )
             ->setPageBreadcrumb(['用户设置', "规则设置"])
+            ->setTableConfig([
+                'limit' => 1000,
+                'limits' => [1000]
+            ])
             ->show("./icesrule/lists.html", './icesrule/delete');
     }
 
@@ -86,6 +90,10 @@ class AdminView
                 "form.render(null, 'icesadmin-menuform')"
             )
             ->setPageBreadcrumb(['用户设置', "菜单设置"])
+            ->setTableConfig([
+                'limit' => 1000,
+                'limits' => [1000]
+            ])
             ->show("./icesmenu/lists.html", './icesmenu/delete');
     }
 

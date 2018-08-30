@@ -60,11 +60,11 @@
 <script>
     layui.use(['admin', 'table'], function () {
         var $ = layui.$
-                , admin = layui.admin
-                , view = layui.view
-                , table = layui.table
-                , form = layui.form
-                , think = layui.think;
+            , setter = layui.setter
+            , admin = layui.admin
+            , table = layui.table
+            , form = layui.form
+            , think = layui.think;
         /**
          * 渲染form
          */
@@ -81,6 +81,10 @@
 
         table.render({
             elem: '#adminuser-table',
+            where: {access_token: (layui.data(setter.tableName)[setter.request.tokenName] || '')},
+            response: {
+                statusCode: 1
+            },
             url: layui.think.admin.user.list,
             cols: [[
                 {type: 'checkbox', fixed: 'left'},

@@ -54,6 +54,7 @@ class Index
                 'userphone' => $userinfo['phone'],
                 'id' => $userinfo['id'],
                 'access_token' => Adminjwt::instance()->encodeHmac([
+                    'type' => "admin",
                     'username' => $userinfo['username'],
                     'userphone' => $userinfo['phone'],
                     'id' => $userinfo['id']

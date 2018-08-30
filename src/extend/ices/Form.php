@@ -85,7 +85,9 @@ class Form extends Backview
             $options['value'] = $this->formValue[$options['name']];
         }
         //没有用的都去掉
-        $options = array_filter($options);
+        $options = array_filter($options, function($var){
+            return !($var === "");
+        });
         return $this->addControl("text", $label, array_merge([
             'inline' => "layui-input-block"
         ], $info), $options);
@@ -120,7 +122,9 @@ class Form extends Backview
             $info['value'] = $this->formValue[$options['name']];
         }
         //去掉空值
-        $options = array_filter($options);
+        $options = array_filter($options, function($var){
+            return !($var === "");
+        });
         return $this->addControl("textarea", $label, array_merge([
             'inline' => "layui-input-block",
             'value' => ""
@@ -155,7 +159,9 @@ class Form extends Backview
         ){
             $options['value'] = $this->formValue[$options['name']];
         }
-        $options = array_filter($options);
+        $options = array_filter($options, function($var){
+            return !($var === "");
+        });
         return $this->addControl("password", $label, array_merge([
             'inline' => "layui-input-block",
         ], $info), $options);
@@ -186,12 +192,14 @@ class Form extends Backview
             'data-auto' => "",
             'data-bindAction' => "",
             'data-field' => $name,
-            'data-size' => "0",
+            'data-size' => "",
             'data-multiple' => "",
             'data-number' => "",
             'data-drag' => ""
         ], $options);
-        $options = array_filter($options);
+        $options = array_filter($options, function($var){
+            return !($var === "");
+        });
         //判断需不需要填充内容
         if(empty($info['options']) && isset($this->formValue[$name])){
             $info['options'] = is_array($this->formValue[$name])?$this->formValue[$name]:explode(",", $this->formValue[$name]);
@@ -215,12 +223,14 @@ class Form extends Backview
             'data-name' => $name,
             'data-swf' => '/layui/tools/Uploader.swf',
             'data-fileNumLimit' => 5,
-            'data-fileSizeLimit' => 1024 * 1024,
-            'data-fileSingleSizeLimit' => 1024 * 1024,
+            'data-fileSizeLimit' => 1024 * 1024 * 100,
+            'data-fileSingleSizeLimit' => 1024 * 1024 * 10,
             'data-label' => "点击选择文件",
             'data-accept' => '{"title":"选择文件","extensions":"gif,jpg,jpeg,bmp,png,xls,xlsx,ppt,pptx,docx,doc,do"}'
         ], $options);
-        $options = array_filter($options);
+        $options = array_filter($options, function($var){
+            return !($var === "");
+        });
         //判断需不需要填充内容
         if(empty($info['options']) && isset($this->formValue[$name])){
             $info['options'] = is_array($this->formValue[$name])?implode(",", $this->formValue[$name]):$this->formValue[$name];
@@ -260,7 +270,9 @@ class Form extends Backview
             'style' => "",
             'name' => $name
         ], $options);
-        $options = array_filter($options);
+        $options = array_filter($options, function($var){
+            return !($var === "");
+        });
 
         //判断需不需要填充内容
         if(isset($this->formValue[$name])){
@@ -310,10 +322,14 @@ class Form extends Backview
         ], $options);
         //判断hack打开search
         if($options['xm-select-search'] == "true"){
-            $options = array_filter($options);
+            $options = array_filter($options, function($var){
+                return !($var === "");
+            });
             $options['xm-select-search'] = "";
         }else{
-            $options = array_filter($options);
+            $options = array_filter($options, function($var){
+                return !($var === "");
+            });
         }
 
         if(isset($this->formValue[$name])){
@@ -368,7 +384,9 @@ class Form extends Backview
             }
         }
 
-        $options = array_filter($options);
+        $options = array_filter($options, function($var){
+            return !($var === "");
+        });
         return $this->addControl("checkbox", $label, array_merge([
             'options' => $list,
             'inline' => "layui-input-block",
@@ -399,7 +417,9 @@ class Form extends Backview
         if(isset($this->formValue[$name])){
             $options['checked'] = empty($this->formValue[$name])?0:1;
         }
-        $options = array_filter($options);
+        $options = array_filter($options, function($var){
+            return !($var === "");
+        });
         return $this->addControl("switch", $label, array_merge([
             'options' => [],
             'inline' => "layui-input-block"
@@ -437,7 +457,9 @@ class Form extends Backview
                 }
             }
         }
-        $options = array_filter($options);
+        $options = array_filter($options, function($var){
+            return !($var === "");
+        });
         return $this->addControl("radio", $label, array_merge([
             'options' => $list,
             'inline' => "layui-input-block"
@@ -479,7 +501,9 @@ class Form extends Backview
             'data-calendar' => "",
             'data-mark' => []
         ], $options);
-        $options = array_filter($options);
+        $options = array_filter($options, function($var){
+            return !($var === "");
+        });
 
         if(isset($this->formValue[$name])){
             $options['value'] = $this->formValue[$name];
@@ -508,7 +532,9 @@ class Form extends Backview
             'style' => "",
             'name' => $name
         ], $options);
-        $options = array_filter($options);
+        $options = array_filter($options, function($var){
+            return !($var === "");
+        });
         if(isset($this->formValue[$name])){
             $options['placeholder'] = $this->formValue[$name];
         }

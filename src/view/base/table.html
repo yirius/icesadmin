@@ -61,12 +61,11 @@
         </div>
         {/if}
         <div class="layui-card-body">
-            <div style="padding-bottom: 10px;clear: both;height: 38px">
-                {:htmlspecialchars_decode($_tablebtns)}
-                <button class="layui-btn layui-btn-normal layuiadmin-btn-admin" data-type="refresh" style="float: right">
-                    <i class="layui-icon layui-icon-refresh-3"></i>
-                </button>
-            </div>
+            <script type="text/html" id="toolbarLeftBtn">
+                <div class="layui-btn-container">
+                    {:htmlspecialchars_decode($_tablebtns)}
+                </div>
+            </script>
 
             <table id="{$_tablename}" lay-filter="{$_tablename}"></table>
 
@@ -86,10 +85,11 @@
 <script>
     layui.use({:json_encode($_tableconsolejs)}, function(){
         var $ = layui.$
-                , admin = layui.admin
-                , table = layui.table
-                , form = layui.form
-                , think = layui.think;
+            , setter = layui.setter
+            , admin = layui.admin
+            , table = layui.table
+            , form = layui.form
+            , think = layui.think;
         /**
          * 渲染form
          */
@@ -104,13 +104,20 @@
             });
         });
 
-        var {$_tablename}Instance = table.render({
-            elem: '#{$_tablename}',
-            url: '{$_tableurl}',
-            page: true,
-            cols: [{:json_encode($_tablecolumns)}]
-        });
+        //设置table的各项设置
+        var {$_tablename}Instance = table.render($.extend({
+                elem: '#{$_tablename}',
+                where: {access_token: (layui.data(setter.tableName)[setter.request.tokenName] || '')},
+                response: {
+                    statusCode: 1
+                },
+                url: '{$_tableurl}',
+                page: true,
+                toolbar: '#toolbarLeftBtn',
+                cols: [{:json_encode($_tablecolumns)}]
+        }, {:json_encode($_tableconfig)}));
 
+        //整理一下参数
         var renderDoneCall = null, submitCallback = null;
         {if !empty($_tableformurl['renderDoneCall'])}
         renderDoneCall = eval("(function(){return function(data){ {$_tableformurl['renderDoneCall']} } })()");
@@ -125,17 +132,17 @@
                 {if !empty($_tabledelurl)}
                     think.funcs['del'].call(this, {
                         data: [data],
-                        url: '{$_tabledelurl}',
+                        url: '{:htmlspecialchars_decode($_tabledelurl)}',
                         table: '{$_tablename}'
                     });
                 {/if}
             } else if (obj.event === 'icesadmin-edit') {
                 {if !empty($_tableformurl)}
                 think.funcs['add'].call(this,{
-                    view: "{$_tableformurl['view']|default=''}" + (typeof data != "undefined" ? '?' + layui.util.object2url(data) : 'null'),
+                    view: "{$_tableformurl['view']?htmlspecialchars_decode($_tableformurl['view']):''}" + (typeof data != "undefined" ? '?' + layui.util.object2url(data) : 'null'),
                     title: "{$_tableformurl['title'][1]|default=''}",
                     btn: "{$_tableformurl['btn']|default=''}",
-                    url: "{$_tableformurl['url']|default=''}",
+                    url: "{$_tableformurl['url']?htmlspecialchars_decode($_tableformurl['url']):''}",
                     table: '{$_tablename|default=""}',
                     data: data
                     {if !empty($_tableformurl['area'])},area: {:json_encode($_tableformurl['area'])}{/if}
@@ -156,10 +163,10 @@
             } else if (type == "add") {
                 {if !empty($_tableformurl)}
                     think.funcs['add'].call(this,{
-                        view: "{$_tableformurl['view']|default=''}",
-                        title: "{$_tableformurl['title'][1]|default=''}",
+                        view: "{$_tableformurl['view']?htmlspecialchars_decode($_tableformurl['view']):''}",
+                        title: "{$_tableformurl['title'][0]|default=''}",
                         btn: "{$_tableformurl['btn']|default=''}",
-                        url: "{$_tableformurl['url']|default=''}",
+                        url: "{$_tableformurl['url']?htmlspecialchars_decode($_tableformurl['url']):''}",
                         table: '{$_tablename|default=""}'
                         {if !empty($_tableformurl['area'])},area: {:json_encode($_tableformurl['area'])}{/if}
                     }, renderDoneCall, submitCallback);
@@ -167,6 +174,18 @@
             } else if(type == "refresh"){
                 {$_tablename}Instance.reload();
             }
+        });
+
+        //服务端排序
+        table.on('sort({$_tablename})', function(obj){
+            table.reload('{$_tablename}', {
+                initSort: obj
+                ,where: {
+                    sort: obj.field
+                    ,order: obj.type
+                }
+            });
+            return false;
         });
 
         {if !empty($_tableeditevent)}
