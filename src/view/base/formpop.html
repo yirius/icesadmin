@@ -40,6 +40,12 @@
                     {case ueditor }
                         {include file="base/form/ueditor" /}
                     {/case}
+                    {case slider }
+                        {include file="base/form/slider" /}
+                    {/case}
+                    {case colorpicker }
+                        {include file="base/form/colorpicker" /}
+                    {/case}
                     {default /}
                         {:htmlspecialchars_decode($_formcontrols_val['type'])}
                 {/switch}
@@ -116,6 +122,38 @@
             });
         }
 
+        if(typeof layui.slider != "undefined"){
+            var slider = layui.slider;
+            $("#{$_formname} div[lay-slider]").each(function(n, v){
+                var inputElem = $(v).parent().find("input");
+                var options = $.extend({
+                    elem: v,
+                    change: function(value){
+                        if(typeof value == "array"){
+                            inputElem.val(value.join(","));
+                        }else{
+                            inputElem.val(value);
+                        }
+                    }
+                }, $(v).data());
+                slider.render(options);
+            });
+        }
+
+        if(typeof layui.colorpicker != "undefined"){
+            var colorpicker = layui.colorpicker;
+            $("#{$_formname} div[lay-colorpicker]").each(function(n, v){
+                var inputElem = $(v).parent().find("input");
+                var options = $.extend({
+                    elem: v,
+                    done: function(value){
+                        inputElem.val(value);
+                    }
+                }, $(v).data());
+                colorpicker.render(options);
+            });
+        }
+
         $("#{$_formname} script[lay-ueditor]").each(function(n, v){
             var info = UE.getEditor(v.id);
             if(info.container){
@@ -133,7 +171,7 @@
         {if $_formispop == false}
         var submitCallback = null;
         {if !empty($_formsubmitcallback)}
-        submitCallback = eval("(function(){return function(data){ {$_formsubmitcallback} } })()");
+        submitCallback = eval("(function(){return function(data){ {:htmlspecialchars_decode($_formsubmitcallback)} } })()");
         {/if}
         form.on("submit({$_formname}-submit)", function (obj) {
             admin.req({

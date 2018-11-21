@@ -50,7 +50,7 @@ class Init extends Command
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `title` char(100) NOT NULL DEFAULT '',
   `status` tinyint(1) NOT NULL DEFAULT '1',
-  `rules` char(80) NOT NULL DEFAULT '',
+  `rules` longtext,
   `createtime` datetime DEFAULT NULL,
   `updatetime` datetime DEFAULT NULL,
   `deletetime` datetime DEFAULT NULL,

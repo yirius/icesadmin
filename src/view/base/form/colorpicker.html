@@ -1,0 +1,5 @@
+<label class="layui-form-label">{$_formcontrols_val['label']}</label>
+<div class="{$_formcontrols_val['info']['inline']|default='layui-input-block'}">
+    <div {foreach name="_formcontrols_val['options']" item="inline" key="inline_i"} {$inline_i}="{$inline}" {/foreach} lay-colorpicker="" ></div>
+    <input type="hidden" name="{$_formcontrols_val['info']['name']}" value="{$_formcontrols_val['info']['value']}"/>
+</div>

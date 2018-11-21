@@ -1,2 +1,0 @@
-/** layuiAdmin.pro-v1.0.0 LPPL License By http://www.layui.com/admin/ */
- ;layui.define(function(i){var a=(layui.$,layui.layer,layui.laytpl,layui.setter,layui.view,layui.admin);a.events.logout=function(){a.req({url:layui.think.logout,type:"get",data:{},done:function(i){a.exit()}})},i("common",{})});

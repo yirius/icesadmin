@@ -30,26 +30,42 @@ class Model extends \think\Model
      * @param null $defaultSearchField
      * @return array
      */
-    protected static function _checkTableParam($defaultOrder, $defaultSearchField = null){
+    protected static function _checkTableParam($defaultConfig, $defaultSearchField = null){
         $config = [];
         /**
          * 首先判断一下order参数, 限定为desc和asc, 防止sql注入
          */
-        $config['order'] = input("param.order", "desc");
-        if(!in_array($config['order'], ['desc', 'asc'])){
-            $config['order'] = "desc";
+        if(empty($defaultConfig['fixedSort'])){
+            $config['order'] = input("param.order", $defaultConfig['defaultSort']);
+            if(!in_array($config['order'], ['desc', 'asc'])){
+                $config['order'] = "desc";
+            }
+        }else{
+            $config['order'] = $defaultConfig['fixedSort'];
         }
         /**
          * 判断page和limit
          */
-        $config['limit'] = intval(input("param.limit", 10));
-        $config['page'] = intval(input("param.page", 1));
+        if(empty($defaultConfig['fixedLimit'])){
+            $config['limit'] = intval(input("param.limit", $defaultConfig['defaultLimit']));
+        }else{
+            $config['limit'] = intval($defaultConfig['fixedLimit']);
+        }
+        if(empty($defaultConfig['fixedPage'])){
+            $config['page'] = intval(input("param.page", $defaultConfig['defaultPage']));
+        }else{
+            $config['page'] = intval($defaultConfig['fixedPage']);
+        }
         /**
          * 判断sort是否存在, 并且是否是表内字段
          */
-        $config['sort'] = input("param.sort", $defaultOrder);
-        if(!in_array($config['sort'], self::getTableFields())){
-            $config['sort'] = null;
+        if(empty($defaultConfig['fixedOrder'])){
+            $config['sort'] = input("param.sort", $defaultConfig['defaultOrder']);
+            if(!in_array($config['sort'], self::getTableFields())){
+                $config['sort'] = null;
+            }
+        }else{
+            $config['sort'] = $defaultConfig['fixedOrder'];
         }
         //返回数据
         return $config;
@@ -73,6 +89,15 @@ class Model extends \think\Model
          */
         $defaultConfig = array_merge([
             "defaultOrder" => "id",
+            "defaultSort" => "desc",
+            "defaultLimit" => 10,
+            "defaultPage" => 1,
+
+            "fixedOrder" => null,
+            "fixedSort" => null,
+            "fixedLimit" => null,
+            "fixedPage" => null,
+
             "orderPrefix" => "a",
             "group" => null,
             "cacheName" => null,
@@ -81,7 +106,7 @@ class Model extends \think\Model
         /**
          * 基类方法获取到配置
          */
-        $config = self::_checkTableParam($defaultConfig['defaultOrder']);
+        $config = self::_checkTableParam($defaultConfig);
 
         /**
          * 判断一下sort
@@ -95,10 +120,14 @@ class Model extends \think\Model
         $_this = $trashed == 0?
             self::field($field)
             :(
-                $trashed == 2?
+            $trashed == 2?
                 self::onlyTrashed()->field($field)
                 :self::withTrashed()->field($field)
             );
+        //判断是否需要修改表单名称
+        if(!empty($defaultConfig['table'])){
+            $_this->table($defaultConfig['table']);
+        }
         $select = $_this
             ->alias(empty($with)?null:'a')
             ->join($with)
@@ -122,6 +151,10 @@ class Model extends \think\Model
                 self::onlyTrashed()->where($where)
                 :self::withTrashed()->where($where)
             );
+        //判断是否需要修改表单名称
+        if(!empty($defaultConfig['table'])){
+            $_this->table($defaultConfig['table']);
+        }
         $count = $_this
             ->alias(empty($with)?null:'a')
             ->join($with)

@@ -28,7 +28,6 @@ function icesRandom($len = 6, $format = 'NUMBER')
             $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-@#~';
             break;
     }
-    mt_srand((double)microtime() * 1000000 * getmypid());
     $password = "";
     while (strlen($password) < $len)
         $password .= substr($chars, (mt_rand() % strlen($chars)), 1);

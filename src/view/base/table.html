@@ -96,11 +96,12 @@
         form.render(null, '{$_tablename}-form');
 
         //监听搜索
+        var icesSearchField = {};
         form.on('submit({$_tablename}-search)', function (data) {
-            var field = data.field;
+            icesSearchField = data.field;
             //执行重载
             table.reload('{$_tablename}', {
-                where: field
+                where: icesSearchField
             });
         });
 
@@ -111,7 +112,7 @@
                 response: {
                     statusCode: 1
                 },
-                url: '{$_tableurl}',
+                url: '{:htmlspecialchars_decode($_tableurl)}',
                 page: true,
                 toolbar: '#toolbarLeftBtn',
                 cols: [{:json_encode($_tablecolumns)}]
@@ -120,10 +121,10 @@
         //整理一下参数
         var renderDoneCall = null, submitCallback = null;
         {if !empty($_tableformurl['renderDoneCall'])}
-        renderDoneCall = eval("(function(){return function(data){ {$_tableformurl['renderDoneCall']} } })()");
+        renderDoneCall = eval("(function(){return function(data){ {:htmlspecialchars_decode($_tableformurl['renderDoneCall'])} } })()");
         {/if}
         {if !empty($_tableformurl['submitCallback'])}
-        submitCallback = eval("(function(){return function(data){ {$_tableformurl['submitCallback']} } })()");
+        submitCallback = eval("(function(){return function(data){ {:htmlspecialchars_decode($_tableformurl['submitCallback'])} } })()");
         {/if}
         //监听工具条
         table.on('tool({$_tablename})', function (obj) {
@@ -138,8 +139,9 @@
                 {/if}
             } else if (obj.event === 'icesadmin-edit') {
                 {if !empty($_tableformurl)}
+                var viewPath = "{$_tableformurl['view']?htmlspecialchars_decode($_tableformurl['view']):''}";
                 think.funcs['add'].call(this,{
-                    view: "{$_tableformurl['view']?htmlspecialchars_decode($_tableformurl['view']):''}" + (typeof data != "undefined" ? '?' + layui.util.object2url(data) : 'null'),
+                    view: viewPath + (typeof data != "undefined" ? (viewPath.indexOf("?") != -1? "&" : '?') + layui.util.object2url(data) : 'null'),
                     title: "{$_tableformurl['title'][1]|default=''}",
                     btn: "{$_tableformurl['btn']|default=''}",
                     url: "{$_tableformurl['url']?htmlspecialchars_decode($_tableformurl['url']):''}",

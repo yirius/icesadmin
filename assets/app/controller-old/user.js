@@ -1,2 +1,0 @@
-/** layuiAdmin.pro-v1.0.0 LPPL License By http://www.layui.com/admin/ */
- ;layui.define(["form","think"],function(i){var e=layui.$,t=(layui.layer,layui.laytpl,layui.setter,layui.view,layui.admin,layui.form),a=layui.think,n=e("body");t.verify({nickname:function(i,e){return new RegExp("^[a-zA-Z0-9_一-龥\\s·]+$").test(i)?/(^\_)|(\__)|(\_+$)/.test(i)?"用户名首尾不能出现下划线'_'":void 0:"用户名不能有特殊字符"},pass:[/^[\S]{6,12}$/,"密码必须6到12位，且不能出现空格"]}),n.on("click","#LAY-user-get-vercode",function(){e(this);this.src=a.login.captcha+"?t="+(new Date).getTime()}),i("user",{})});

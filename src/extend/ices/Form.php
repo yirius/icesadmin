@@ -515,7 +515,88 @@ class Form extends Backview
         ], $info), $options);
     }
 
-    /*
+    /**
+     * @title 添加一个滑动控件
+     * @description 添加一个滑动控件,具体组件参考[http://www.layui.com/doc/modules/slider.html]
+     * @createtime: 2018/7/11 12:53
+     * @param string $name 组件要使用的select的name true '' ''
+     * @param string $label 组件前面展示的标题 true '' ''
+     * @param int $value 显示的placeholder false '' ''
+     * @param array $info 数组承载图片内容,多张就[XX,XXX] false [] ''
+     * @param array $options 直接渲染在input上面的各种attr,赋值value需要写在options内 false [] ''
+     * @return Form
+     */
+    public function addSlider($name, $label, $value = 0, $info = [], $options = []){
+        $options = array_merge([
+            'data-type' => "",//default or vertical
+            'data-min' => "",
+            'data-max' => "",
+            'data-range' => "",
+            'data-step' => "",
+            'data-value' => $value,
+            'data-showstep' => "",
+            'data-tips' => "",
+            'data-input' => "",
+            'data-height' => "",
+            'data-disabled' => "",
+            'data-theme' => ""
+        ], $options);
+        $options = array_filter($options, function($var){
+            return !($var === "");
+        });
+
+        if(isset($this->formValue[$name])){
+            $info['value'] = $this->formValue[$name];
+            $options['data-value'] = $this->formValue[$name];
+        }
+        $this->formConsoleJs[] = "slider";
+
+        return $this->addControl("slider", $label, array_merge([
+            'name' => $name,
+            'value' => $value,
+            'inline' => "layui-input-block"
+        ], $info), $options);
+    }
+
+
+    /**
+     * @title 添加一个滑动控件
+     * @description 添加一个滑动控件,具体组件参考[http://www.layui.com/doc/modules/slider.html]
+     * @createtime: 2018/7/11 12:53
+     * @param string $name 组件要使用的select的name true '' ''
+     * @param string $label 组件前面展示的标题 true '' ''
+     * @param string $value 显示的placeholder false '' ''
+     * @param array $info 数组承载图片内容,多张就[XX,XXX] false [] ''
+     * @param array $options 直接渲染在input上面的各种attr,赋值value需要写在options内 false [] ''
+     * @return Form
+     */
+    public function addColorPicker($name, $label, $value = '', $info = [], $options = []){
+        $options = array_merge([
+            'data-color' => $value,
+            'data-format' => "",//hex or rgb
+            'data-alpha' => true,
+            'data-predefine' => '',
+            'data-colors' => "",
+            'data-size' => ""
+        ], $options);
+        $options = array_filter($options, function($var){
+            return !($var === "");
+        });
+
+        if(isset($this->formValue[$name])){
+            $info['value'] = $this->formValue[$name];
+            $options['data-value'] = $this->formValue[$name];
+        }
+        $this->formConsoleJs[] = "colorpicker";
+
+        return $this->addControl("colorpicker", $label, array_merge([
+            'name' => $name,
+            'value' => $value,
+            'inline' => "layui-input-block"
+        ], $info), $options);
+    }
+
+    /**
     * @title 添加一个日期选择组件
     * @description 添加一个日期选择组件,具体组件参考[http://www.layui.com/doc/modules/laydate.html]
     * @createtime: 2018/7/11 12:53
